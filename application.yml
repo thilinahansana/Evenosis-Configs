@@ -1,12 +1,5 @@
 spring:
-  datasource:
-    hikari:
-      maximum-pool-size: 10
   jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
     open-in-view: false
-server:
-  error:
-    include-message: always
+  datasource.hikari.maximum-pool-size: 10
+server.error.include-message: always
