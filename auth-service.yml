@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://pg-auth:5432/authdb
+    username: postgres
+    password: pwd
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+jwt:
+  secret: yourSuperSecureSecretKey
+  expiration: 86400000   # 24 hours in ms
+
+role:
+  service:
+    url: http://role-service:8080
+
+perm:
+  service:
+    url: http://permission-service:8080
