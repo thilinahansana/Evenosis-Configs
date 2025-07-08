@@ -1,1 +1,11 @@
-
+spring:
+  application:
+    name: permission-service
+  datasource:
+    url: jdbc:postgresql://pg-perm:5432/permdb
+    username: postgres
+    password: pwd
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
