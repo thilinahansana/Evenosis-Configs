@@ -1,11 +1,7 @@
 spring:
-  application:
-    name: role-service
   datasource:
     url: jdbc:postgresql://pg-role:5432/roledb
     username: postgres
     password: pwd
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+    driver-class-name: org.postgresql.Driver
+server.port: 8080
