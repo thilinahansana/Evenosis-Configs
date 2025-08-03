@@ -1,7 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://pg-role:5432/roledb
-    username: postgres
-    password: pwd
+    url: jdbc:postgresql://pg-role:5432/${ROLE_DB_NAME:roledb}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:password}
     driver-class-name: org.postgresql.Driver
-server.port: 8080
+  jpa:
+    hibernate:
+      ddl-auto: update
