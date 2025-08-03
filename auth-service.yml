@@ -1,7 +1,11 @@
 spring:
   datasource:
-    url: jdbc:postgresql://pg-auth:5432/authdb
-    username: postgres
-    password: pwd
-jwt.secret: ChangeMeNow123
-role.service.url: http://role-service:8080
+    url: jdbc:postgresql://pg-auth:5432/${AUTH_DB_NAME:authdb}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
