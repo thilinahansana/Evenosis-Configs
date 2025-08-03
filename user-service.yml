@@ -1,14 +1,17 @@
+server:
+  port: 8082
+
 spring:
   datasource:
-    url: jdbc:postgresql://pg-user:5432/${USER_DB_NAME:userdb}
-    username: ${POSTGRES_USER:postgres}
-    password: ${POSTGRES_PASSWORD:password}
+    url: jdbc:postgresql://localhost:5432/evenosis_users
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}
     driver-class-name: org.postgresql.Driver
+  
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate:
-        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
