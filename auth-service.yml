@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/evenosis_auth
+    url: jdbc:postgresql://localhost:5433/authdb
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:pwd}
     driver-class-name: org.postgresql.Driver
