@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/evenosis_permissions
+    url: jdbc:postgresql://localhost:5436/permdb
     username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:password}
+    password: ${DB_PASSWORD:pwd}
     driver-class-name: org.postgresql.Driver
   
   jpa:
