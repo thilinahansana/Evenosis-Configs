@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/roledb
+    url: jdbc:postgresql://localhost:5435/roledb
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:pwd}
     driver-class-name: org.postgresql.Driver
