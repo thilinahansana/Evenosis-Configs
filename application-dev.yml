@@ -1,0 +1,49 @@
+# Development Environment - Shared Configuration
+# This file contains common configuration for all services in development
+
+spring:
+  profiles:
+    active: dev
+
+# Development Database Configuration
+database:
+  host: localhost
+  port: 5432
+  username: postgres
+  password: thilina1100
+
+# Development Logging Configuration
+logging:
+  level:
+    com.evenosis: DEBUG
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+# Development Management Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+# Development Security Configuration
+security:
+  cors:
+    allowed-origins:
+      - "http://localhost:3000"
+      - "http://localhost:3001"
+      - "http://localhost:8080"
+    allowed-methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
+    allowed-headers: "*"
+    allow-credentials: true

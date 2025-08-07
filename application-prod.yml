@@ -1,0 +1,67 @@
+# Production Environment - Shared Configuration
+# This file contains common configuration for all services in production
+
+spring:
+  profiles:
+    active: prod
+
+# Production Database Configuration
+database:
+  host: db
+  port: 5432
+  username: postgres
+  password: pwd
+
+# Production Logging Configuration
+logging:
+  level:
+    com.evenosis: INFO
+    org.springframework: WARN
+    org.hibernate.SQL: WARN
+    root: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/application.log
+    max-size: 100MB
+    max-history: 30
+    total-size-cap: 1GB
+
+# Production Management Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# Production Security Configuration
+security:
+  cors:
+    allowed-origins:
+      - "${ALLOWED_ORIGINS:https://yourdomain.com}"
+    allowed-methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
+    allowed-headers: "*"
+    allow-credentials: true
+
+# Production Performance Configuration
+server:
+  tomcat:
+    max-threads: 200
+    min-spare-threads: 10
+    connection-timeout: 20000
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
