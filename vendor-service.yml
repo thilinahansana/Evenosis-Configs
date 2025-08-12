@@ -89,3 +89,9 @@ event-service:
     max-description-length: 1000
     max-events-per-organizer: 100
     advance-booking-days: 365
+
+user-service:
+  url: http://localhost:8082
+
+booking-service:
+  url: http://localhost:8085
