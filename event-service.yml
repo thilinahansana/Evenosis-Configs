@@ -40,6 +40,15 @@ spring:
         max-interval: 2000
         multiplier: 1.1
 
+eureka:
+  client:
+    register-with-eureka: false # Disable Eureka registration for now
+    fetch-registry: false # Disable Eureka registry fetching
+    enabled: false # Disable Eureka client entirely
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+
 management:
   endpoints:
     web:
