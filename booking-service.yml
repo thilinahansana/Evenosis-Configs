@@ -1,0 +1,72 @@
+spring:
+  application:
+    name: booking-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/evenosis_booking
+    username: ${DB_USERNAME:evenosis}
+    password: ${DB_PASSWORD:password123}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: false
+      retry:
+        initial-interval: 2000
+        max-attempts: 3
+
+server:
+  port: 8087
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.evenosis.bookingservice: INFO
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+
+# OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    config-url: /v3/api-docs/swagger-config
+    url: /v3/api-docs
+
+# Business Configuration
+booking:
+  config:
+    vendor-response-deadline-hours: 48
+    deposit-percentage: 0.30
+    tax-percentage: 0.10
+    auto-cancel-expired-hours: 72
+    max-add-ons-per-booking: 10
