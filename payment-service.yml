@@ -30,6 +30,16 @@ management:
     health:
       show-details: always
 
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    config-url: /v3/api-docs/swagger-config
+    url: /v3/api-docs
+
 logging:
   level:
     com.evenosis.paymentservice: DEBUG
